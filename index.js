@@ -1,10 +1,9 @@
 const $ = (arg) => {
+  let elements;
+
   if (typeof arg === "function") {
     document.addEventListener("DOMContentLoaded", arg);
-    return;
   }
-
-  let elements;
 
   //HTMLElement
   if (arg instanceof HTMLElement) {
@@ -23,8 +22,7 @@ const $ = (arg) => {
     elements.forEach((el) => {
       if (isString) el.style[property] = value;
       else {
-        const entriesCSS = Object.entries(property);
-        entriesCSS.forEach(([property, value]) => {
+        Object.entries(property).forEach(([property, value]) => {
           el.style[property] = value;
         });
       }
@@ -48,25 +46,38 @@ const $ = (arg) => {
 
   elements.fadeIn = (duration = 1000) => {
     elements.forEach((el, index) => {
-        const animation = el.animate([
-            {opacity:0},
-            {opacity:1}
-        ],{
-            duration
-        })
+      const animation = el.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration,
+      });
 
-        animation.onfinish = () => el.style.opacity = 1
-    })
-    return elements
-  }
+      animation.onfinish = () => (el.style.opacity = 1);
+    });
+    return elements;
+  };
+
+  elements.toogle = () => {
+    elements.forEach((el, index) => {
+      el.style.opacity = el.style.opacity === "0" ? "1" : "0";
+    });
+    return elements;
+  };
 
   return elements;
 };
 
 $(() => {
-  console.log("DOMContentLoaded");
+  $("#toogle")
+    .css("background", "green")
+    .css("border", "blue")
+    .css({
+      padding: "16px",
+      borderRadius: "4px",
+    })
+    .on("click", () => {
+      $("#message").toogle();
+    });
 
-  $("button")
+  $("#fadeIn")
     .css("background", "red")
     .css("border", "blue")
     .css({
@@ -74,12 +85,12 @@ $(() => {
       borderRadius: "4px",
     })
     .on("click", () => {
-      $('#message').fadeIn();
+      $("#message").fadeIn();
     });
 
   $("li").each((index, el) => {
     if (index === 0) $(el).css("color", "green");
     if (index === 1) $(el).css("color", "orange");
-    if (index === 2) $(el).css("color", "yellow");
+    if (index === 2) $(el).css("color", "purple");
   });
 });
