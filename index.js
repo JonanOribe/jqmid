@@ -45,6 +45,21 @@ const $ = (arg) => {
     });
     return elements;
   };
+
+  elements.fadeIn = (duration = 1000) => {
+    elements.forEach((el, index) => {
+        const animation = el.animate([
+            {opacity:0},
+            {opacity:1}
+        ],{
+            duration
+        })
+
+        animation.onfinish = () => el.style.opacity = 1
+    })
+    return elements
+  }
+
   return elements;
 };
 
@@ -59,7 +74,7 @@ $(() => {
       borderRadius: "4px",
     })
     .on("click", () => {
-      alert("Ey!");
+      $('#message').fadeIn();
     });
 
   $("li").each((index, el) => {
