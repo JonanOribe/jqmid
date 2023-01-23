@@ -1,1 +1,1 @@
-import {$} from '../package/index'
+const jq = require("jqmid")

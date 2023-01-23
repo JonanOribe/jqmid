@@ -1,4 +1,4 @@
-const $ = (arg) => {
+const jq = (arg) => {
   let elements;
 
   if (typeof arg === "function") {
@@ -65,8 +65,8 @@ const $ = (arg) => {
   return elements;
 };
 
-$(() => {
-  $("#toogle")
+jq(() => {
+  jq("#toogle")
     .css("background", "green")
     .css("border", "blue")
     .css({
@@ -74,10 +74,10 @@ $(() => {
       borderRadius: "4px",
     })
     .on("click", () => {
-      $("#message").toogle();
+      jq("#message").toogle();
     });
 
-  $("#fadeIn")
+  jq("#fadeIn")
     .css("background", "red")
     .css("border", "blue")
     .css({
@@ -85,14 +85,14 @@ $(() => {
       borderRadius: "4px",
     })
     .on("click", () => {
-      $("#message").fadeIn();
+      jq("#message").fadeIn();
     });
 
-  $("li").each((index, el) => {
-    if (index === 0) $(el).css("color", "green");
-    if (index === 1) $(el).css("color", "orange");
-    if (index === 2) $(el).css("color", "purple");
+  jq("li").each((index, el) => {
+    if (index === 0) jq(el).css("color", "green");
+    if (index === 1) jq(el).css("color", "orange");
+    if (index === 2) jq(el).css("color", "purple");
   });
 });
 
-module.exports = $
+module.exports = jq

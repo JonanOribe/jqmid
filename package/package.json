@@ -1,6 +1,6 @@
 {
   "name": "jqmid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight jquery style library",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JonanOribe/jqmidu.git"
+    "url": "git+https://github.com/JonanOribe/jqmid.git"
   },
   "keywords": [
     "jquery"
@@ -16,7 +16,7 @@
   "author": "Jonan Oribe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JonanOribe/jqmidu/issues"
+    "url": "https://github.com/JonanOribe/jqmid/issues"
   },
-  "homepage": "https://github.com/JonanOribe/jqmidu#readme"
+  "homepage": "https://github.com/JonanOribe/jqmid#readme"
 }
