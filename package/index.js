@@ -94,3 +94,5 @@ $(() => {
     if (index === 2) $(el).css("color", "purple");
   });
 });
+
+module.exports = $
